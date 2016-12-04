@@ -8,15 +8,15 @@ FILE(GLOB INCS "inc/*.h")
 FILE(GLOB HEADERS "src/*.h")
 SOURCE_GROUP(Headers FILES ${INCS} ${HEADERS})
 
-ADD_LIBRARY(dynamic shared ${DIR_SRCS} ${HEADERS} ${INCS})
+ADD_LIBRARY(dynamic SHARED ${DIR_SRCS} ${HEADERS} ${INCS})
 
 SET_TARGET_PROPERTIES(dynamic PROPERTIES FOLDER "Library")
 
 IF(CMAKE_SYSTEM_NAME MATCHES "Windows") 
-	ADD_EXECUTABLE(dynamic_test "test/dynamic_test.cxx")
+	ADD_EXECUTABLE(dynamic_test "tests/dynamic_test.cxx")
 	ADD_DEPENDENCIES(dynamic_test dynamic utils)
 	TARGET_LINK_LIBRARIES(dynamic_test dynamic utils)
 	SET_TARGET_PROPERTIES(dynamic_test PROPERTIES FOLDER "Library")
 ELSE(CMAKE_SYSTEM_NAME MATCHES "Linux")
-	# TARGET_LINK_LIBRARIES(dynamic_test dynamic utils)
+	TARGET_LINK_LIBRARIES(dynamic_test dynamic utils)
 ENDIF(CMAKE_SYSTEM_NAME MATCHES "Windows")	

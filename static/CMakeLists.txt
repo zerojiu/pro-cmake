@@ -13,7 +13,7 @@ ADD_LIBRARY(static STATIC ${DIR_SRCS} ${HEADERS} ${INCS})
 SET_TARGET_PROPERTIES(static PROPERTIES FOLDER "Library")
 
 IF(CMAKE_SYSTEM_NAME MATCHES "Windows") 
-	ADD_EXECUTABLE(static_test "test/static_test.cxx")
+	ADD_EXECUTABLE(static_test "tests/static_test.cxx")
 	ADD_DEPENDENCIES(static_test static utils)
 	TARGET_LINK_LIBRARIES(static_test static utils)
 	SET_TARGET_PROPERTIES(static_test PROPERTIES FOLDER "Library")

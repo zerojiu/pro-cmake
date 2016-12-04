@@ -1,5 +1,7 @@
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/inc
 					${CMAKE_SOURCE_DIR}/util/inc
+					${CMAKE_SOURCE_DIR}/thirdparty/gRPC/include
+					${CMAKE_SOURCE_DIR}/thirdparty/gRPC/third_party/protobuf/src
 					${CMAKE_CURRENT_SOURCE_DIR}/src)
 					
 AUX_SOURCE_DIRECTORY(${CMAKE_CURRENT_SOURCE_DIR}/src DIR_SRCS)
@@ -9,7 +11,7 @@ FILE(GLOB HEADERS "src/*.h")
 SOURCE_GROUP(Headers FILES ${INCS} ${HEADERS})
 
 ADD_EXECUTABLE(app ${DIR_SRCS} ${HEADERS} ${INCS})
-ADD_DEPENDENCIES(app static dynamic util)
+ADD_DEPENDENCIES(app static dynamic utils)
 
 SET_TARGET_PROPERTIES(app PROPERTIES FOLDER "App")
 

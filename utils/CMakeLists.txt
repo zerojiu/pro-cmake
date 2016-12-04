@@ -13,7 +13,7 @@ ADD_LIBRARY(utils STATIC ${DIR_SRCS} ${HEADERS} ${INCS})
 SET_TARGET_PROPERTIES(utils PROPERTIES FOLDER "Library")
 
 IF(CMAKE_SYSTEM_NAME MATCHES "Windows") 
-	ADD_EXECUTABLE(utils_test "test/utils_test.cxx")
+	ADD_EXECUTABLE(utils_test "tests/utils_test.cxx")
 	TARGET_LINK_LIBRARIES(utils_test utils)
 	SET_TARGET_PROPERTIES(utils_test PROPERTIES FOLDER "Library")
 ELSE(CMAKE_SYSTEM_NAME MATCHES "Linux")
