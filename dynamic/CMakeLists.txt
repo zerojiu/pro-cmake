@@ -1,5 +1,5 @@
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/inc
-					${CMAKE_SOURCE_DIR}/util/inc
+					${CMAKE_SOURCE_DIR}/utils/inc
 					${CMAKE_CURRENT_SOURCE_DIR}/src)
 					
 AUX_SOURCE_DIRECTORY(${CMAKE_CURRENT_SOURCE_DIR}/src DIR_SRCS)
@@ -9,10 +9,11 @@ FILE(GLOB HEADERS "src/*.h")
 SOURCE_GROUP(Headers FILES ${INCS} ${HEADERS})
 
 ADD_LIBRARY(dynamic SHARED ${DIR_SRCS} ${HEADERS} ${INCS})
-
+TARGET_LINK_LIBRARIES(dynamic utils)
 SET_TARGET_PROPERTIES(dynamic PROPERTIES FOLDER "Library")
 
 IF(CMAKE_SYSTEM_NAME MATCHES "Windows") 
+	ADD_DEFINITIONS(/D"Dynamic_EXPORTS")
 	ADD_EXECUTABLE(dynamic_test "tests/dynamic_test.cxx")
 	ADD_DEPENDENCIES(dynamic_test dynamic utils)
 	TARGET_LINK_LIBRARIES(dynamic_test dynamic utils)

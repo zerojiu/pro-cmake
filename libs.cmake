@@ -39,11 +39,16 @@ IF(CMAKE_SYSTEM_NAME MATCHES "Windows")
 	SET_PROPERTY(TARGET zlib PROPERTY IMPORTED_IMPLIB_RELEASE ${CMAKE_SOURCE_DIR}/thirdparty/gRPC/vsprojects/packages/grpc.dependencies.zlib.1.2.8.10/build/native/lib/v140/x64/Release/dynamic/stdcall/zlib.lib)
 	SET_PROPERTY(TARGET zlib PROPERTY IMPORTED_LOCATION_RELEASE  ${CMAKE_SOURCE_DIR}/thirdparty/gRPC/vsprojects/packages/grpc.dependencies.zlib.redist.1.2.8.10/build/native/bin/v140/x64/Release/dynamic/stdcall/zlib.dll)
 	
+	ADD_LIBRARY(Ws2_32 SHARED IMPORTED)
+	SET_PROPERTY(TARGET Ws2_32 PROPERTY IMPORTED_IMPLIB ws2_32.lib)	
+	
 	EXECUTE_PROCESS(COMMAND  
         ${CMAKE_SOURCE_DIR}/thirdparty/gRPC/third_party/protobuf/cmake/win/Debug/protoc.exe 
         -I ${CMAKE_SOURCE_DIR}/protos/app 
-        --grpc_out=${CMAKE_SOURCE_DIR}/app/src 
-        --cpp_out=${CMAKE_SOURCE_DIR}/app/src 
+        --grpc_out=${CMAKE_SOURCE_DIR}/client/src 
+		--grpc_out=${CMAKE_SOURCE_DIR}/server/src
+        --cpp_out=${CMAKE_SOURCE_DIR}/client/src 
+	    --cpp_out=${CMAKE_SOURCE_DIR}/server/src 
         --plugin=protoc-gen-grpc=${CMAKE_SOURCE_DIR}/thirdparty/gRPC/vsprojects/x64/Debug/grpc_cpp_plugin.exe  
         ${CMAKE_SOURCE_DIR}/protos/app/app.proto)
 
