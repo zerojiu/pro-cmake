@@ -27,4 +27,10 @@
 *.exe
 *.out
 *.app
+
+# Compile Files
 /build
+
+# gRPC Files
+.pb.h
+.pb.cc
