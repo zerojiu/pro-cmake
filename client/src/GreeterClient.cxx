@@ -13,6 +13,6 @@ std::string pro::GreeterClient::sayHello(std::string user)
 	if (status.ok()) {
 		return response.message();
 	} else {
-		return "RFC Failed.";
+		return "RPC Failed.";
 	}
 }
