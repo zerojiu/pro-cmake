@@ -8,6 +8,10 @@ service Greeter {
 	rpc sayHello (HelloRequest) returns (HelloResponse) {}
 }
 
+service AsyncGreeter {
+	rpc sayHello (HelloRequest) returns (HelloResponse) {}
+}
+
 message HelloRequest {
 	string name = 1;
 }

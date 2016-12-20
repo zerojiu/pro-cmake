@@ -1,8 +1,8 @@
 #include "GreeterService.h"
 #include "ResponseHandler.h"
 
-Status pro::GreeterService::sayHello(ServerContext* context, const HelloRequest* request, HelloResponse* response)
+Status pro::GreeterService::sayHello(ServerContext* context, const HelloRequest* req, HelloResponse* rsp)
 {
-	response->set_message(pro::getResponseHandler()->getResponse(request->name()));
+	rsp->set_message(pro::getResponseHandler()->getResponse(req->name()));
 	return Status::OK;
 }

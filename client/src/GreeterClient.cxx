@@ -3,15 +3,15 @@
 
 std::string pro::GreeterClient::sayHello(std::string user)
 {
-	HelloRequest request;
-	request.set_name(pro::getRequestHandler()->getRequest(user));
+	HelloRequest req;
+	req.set_name(pro::getRequestHandler()->getRequest(user));
 
-	HelloResponse response;
-	ClientContext context;
+	HelloResponse rsp;
+	ClientContext ctx;
 	
-	Status status = _stub->sayHello(&context, request, &response);
+	Status status = _stub->sayHello(&ctx, req, &rsp);
 	if (status.ok()) {
-		return response.message();
+		return rsp.message();
 	} else {
 		return "RPC Failed.";
 	}

@@ -3,7 +3,7 @@
 
 #include <memory>
 #include <string>
-#include <grpc++\grpc++.h>
+#include <grpc++/grpc++.h>
 #include "app.grpc.pb.h"
 
 using grpc::Channel;

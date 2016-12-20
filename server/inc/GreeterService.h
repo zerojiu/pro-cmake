@@ -20,7 +20,7 @@ namespace pro{
 		GreeterService() = default;
 		~GreeterService() = default;
 
-		virtual Status sayHello(ServerContext* context, const HelloRequest* request, HelloResponse* response) override;
+		virtual Status sayHello(ServerContext* context, const HelloRequest* req, HelloResponse* rsp) override;
 	};
 }
 
