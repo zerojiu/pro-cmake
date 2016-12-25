@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_package = "io.grpc.examples";
+
+package app;
+
+service Greeter {
+	rpc sayHello (HelloRequest) returns (HelloResponse) {}
+}
+
+service AsyncGreeter {
+	rpc sayHello (HelloRequest) returns (HelloResponse) {}
+}
+
+message HelloRequest {
+	string name = 1;
+}
+
+message HelloResponse {
+	string message = 1;
+}
