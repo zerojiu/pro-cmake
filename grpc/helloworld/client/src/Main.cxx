@@ -1,5 +1,4 @@
 #include "GreeterClient.h"
-#include "AsyncGreeterClient.h"
 
 void runClient()
 {

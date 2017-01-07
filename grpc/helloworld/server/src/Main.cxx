@@ -1,11 +1,10 @@
 #include <memory>
 #include <iostream>
 #include "GreeterService.h"
-#include "AsyncGreeterService.h"
 
 void runServer()
 {
-	std::cout << "server run." << std::endl;
+	std::cout << "server run at 0.0.0.0:50051" << std::endl;
 
 	std::string serverAddress("0.0.0.0:50051");
 	pro::GreeterService service;

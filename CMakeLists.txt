@@ -21,8 +21,4 @@ ADD_SUBDIRECTORY(gui)
 IF(BUILD_GRPC)
 	ADD_SUBDIRECTORY(grpc/helloworld/client)
 	ADD_SUBDIRECTORY(grpc/helloworld/server)
-	ADD_SUBDIRECTORY(grpc/routeguide/client)
-	ADD_SUBDIRECTORY(grpc/routeguide/server)
 ENDIF(BUILD_GRPC)
-
-ADD_SUBDIRECTORY(test/pocotest)
