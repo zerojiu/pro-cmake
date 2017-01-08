@@ -27,3 +27,7 @@ cd build
 mkdir win
 cd win
 cmake ../.. -G"Visual Studio 14 2015 Win64" -D"BUILD_GRPC=TRUE"
+
+cd %~dp0
+cd thirdparty\Poco
+buildwin.cmd 140 build static_md both x64 nosamples notests msbuild
