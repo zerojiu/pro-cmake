@@ -3,4 +3,4 @@
 	url = git@github.com:grpc/grpc.git
 [submodule "thirdparty/Poco"]
 	path = thirdparty/Poco
-	url = git@github.com:pocoproject/poco.git 
+	url = git@github.com:pocoproject/poco.git
